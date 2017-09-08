@@ -81,14 +81,20 @@ class TodoList
     @todos.delete(item_at(index))
   end
 
+  def to_a
+    @todos
+  end
+
   def to_s
+
     counter = 0
-    result = []
+    result = ["---- #{title} ----"]
     while counter < size
       result << "#{item_at(counter)}"
       counter += 1
     end
-    result.join("\n")
+    result = result.join("\n")
+    result + "\n"
   end
 
   def each
@@ -162,3 +168,4 @@ class TodoList
   end
 
 end
+
