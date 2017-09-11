@@ -173,11 +173,8 @@ class TodoListTest < MiniTest::Test
     [ ] Clean room
     [ ] Go to gym
     OUTPUT
-
     assert_equal(output, @list.to_s)
-
     @todo2.done!
-
     output2 = <<~OUTPUT
     ---- Today's Todos ----
     [ ] Buy milk
@@ -197,10 +194,8 @@ class TodoListTest < MiniTest::Test
     [X] Clean room
     [X] Go to gym
     OUTPUT
-
     assert_equal(output3, @list.to_s)
   end
-
   def test_each
     @list.each { |todo| todo.done! }
     assert_equal(true, @todo1.done?)
@@ -208,11 +203,9 @@ class TodoListTest < MiniTest::Test
     assert_equal(true, @todo3.done?)
     assert_equal(@list, @list.each { |todo| nil })
   end
-
   def test_select
     result = @list.select { |todo| todo.done? }
     assert_equal(0, result.size)
-
     @list.mark_all_done
     result = @list.select { |todo| todo.done? }
     assert_equal(3, result.size)

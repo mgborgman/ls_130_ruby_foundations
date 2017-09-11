@@ -1,12 +1,11 @@
-def times(num)
+def times(number)
   counter = 0
-  while counter < num
+  while counter < number
     yield(counter)
     counter += 1
   end
-  num
+  number
 end
-
 
 times(5) do |num|
   puts num
