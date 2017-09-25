@@ -1,7 +1,14 @@
 def count(array)
-  array.select { |item| yield(item) }.size
+  result = []
+  array.each do |element|
+    # yield element to block
+    # add blocks return value to result array if blocks return value is true
+    result << element if yield(element)
+  end
+  # count number of occurances of true in result array
+  # return count
+  result.size
 end
-
 
 p count([1,2,3,4,5]) { |value| value.odd? } == 3
 p count([1,2,3,4,5]) { |value| value % 3 == 1 } == 2

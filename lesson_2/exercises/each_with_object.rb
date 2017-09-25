@@ -1,6 +1,6 @@
 def each_with_object(array, obj)
-  array.each do |item|
-    yield(item, obj)
+  array.each do |element|
+    yield(element, obj)
   end
   obj
 end

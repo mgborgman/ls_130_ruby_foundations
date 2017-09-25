@@ -1,7 +1,8 @@
 def each_with_index(array)
   index = 0
-  array.each do |item|
-    yield(item, index) if block_given?
+
+  while index < array.size
+    yield(array[index], index)
     index += 1
   end
   array

@@ -12,12 +12,13 @@ class Device
   end
 
   def play
-    "#{@recordings.last}"
+    puts @recordings.last
   end
 end
 
 
 listener = Device.new
 listener.listen { "Hello World!" }
+listener.listen { "testing" }
 listener.listen
-p listener.play # Outputs "Hello World!"
+listener.play # Outputs "testing"

@@ -1,12 +1,14 @@
-def step(start, stop, step)
-  current_value = start
-  loop do
-    yield(current_value)
-    break if current_value >= stop
-    current_value += step
+def step(starting_num, ending_num, step)
+  # build a range based off starting_num and ending_num
+  range = (starting_num..ending_num).to_a
+  current_number = range.first
+  # iterate through the range
+  while current_number <= range.last
+    # pass the current number to the block
+    yield(current_number)
+    # increase current number by step
+    current_number += step
   end
-  current_value
 end
 
-result = step(1, 10, 3){|value| puts "value = #{value}"}
-p result
+step(1, 10, 3) { |value| puts "value = #{value}" }

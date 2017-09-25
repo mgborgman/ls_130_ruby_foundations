@@ -1,10 +1,14 @@
 def zip(array1, array2)
   result = []
+  # keep track of index for array1 and array2
   index = 0
-  loop do
+
+  while index < array1.size    
+    # copy the element at index0 from both arrays into a new array
     result << [array1[index], array2[index]]
+    # increment index
     index += 1
-    break if index >= array1.size
+    # repeat
   end
   result
 end

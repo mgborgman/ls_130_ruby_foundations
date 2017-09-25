@@ -1,9 +1,9 @@
-def count(*list, &block)
-  count = 0
-  list.each do |item|
-    count += 1 if block.call(item)
+def count(*args)
+  result = []
+  args.each do |element|
+    result << element if yield(element)
   end
-  count
+  result.size
 end
 
 p count(1, 3, 6) { |value| value.odd? } == 2
