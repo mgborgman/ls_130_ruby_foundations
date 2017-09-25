@@ -1,13 +1,10 @@
 def each(array)
   counter = 0
-
   while counter < array.size
-    yield(array[counter])
+    yield(array[counter]) if block_given?
     counter += 1
   end
   array
 end
 
-each([1, 2, 3, 4, 5]) do |num|
-  puts num
-end
+each([1, 2, 3]){|num| puts num}
