@@ -1,18 +1,15 @@
-require 'pry'
-
 class Sieve
   def initialize(limit)
-    @limit = limit
+    @range = (2..limit).to_a
   end
 
   def primes
-    numbers = (2..@limit).to_a
-    numbers.each do |prime|
-      prime.reject! {|num| num != prime && num % prime == 0}
+    @range.each_with_index do |_, index|
+      current_number = @range[index]
+      @range.delete_if {|number| number % current_number == 0 && number != current_number}
+      break if current_number == @range.last
     end
-    numbers
+    @range
   end
 end
 
-sieve = Sieve.new(10)
-p sieve.primes
